@@ -1,0 +1,103 @@
+body {
+  padding: 64px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 100px;
+  background: orange;
+  
+  /* animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+  /* animation-direction: alternate-reverse; */
+  
+  /* 1sはdelay */
+  animation: move 2s infinite 1s;
+}
+
+.btn {
+  padding: 16px 32px;
+  background: hsl(200, 100%, 40%);
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: hsl(200, 100%, 45%);
+}
+
+.loading {
+  margin-top: 100px;
+  width: 40px;
+  height: 40px;
+  border: 8px solid #ccc;
+  border-right-color: transparent;
+  border-radius: 50%;
+
+  animation: spin .8s infinite linear;
+}
+
+.message {
+  width: 300px;
+  padding: 8px 16px;
+  background: #2c2c2c;
+  color: #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  
+  animation: popup 2s forwards;
+}
+
+button {
+  width: 300px;
+  padding: 8px 16px;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
+@keyframes move {
+  0% {
+    transform: none;
+    animation-timing-function: linear;
+  }
+  80% {
+    transform: translateX(200px) rotate(360deg);
+  }
+  100% {
+    transform: translateX(300px) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+    animation-timing-function: ease-out;
+  }
+  20%, 80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
